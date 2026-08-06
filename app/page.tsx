@@ -828,7 +828,7 @@ export default function GamePage() {
     dragonName && `Companheiro: ${dragonName}`,
     flags.dragonBond >= 4 && "Vínculo forte",
     flags.captainTrust >= 4 && "Confiança do capitão"
-  ].filter(Boolean);
+  ].filter((item): item is string => Boolean(item));
 
   return (
     <main className={`game-shell scene-${current.art}`}>
