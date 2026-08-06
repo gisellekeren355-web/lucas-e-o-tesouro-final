@@ -520,7 +520,7 @@ export default function GamePage() {
           </div>
         </div>
       </section>
-      {scene !== "title" && <button className="restart" onClick={() => go("title")}>Recomeçar</button>}
+      <button className="restart" onClick={() => go("title")}>Recomeçar</button>
     </main>
   );
 }
