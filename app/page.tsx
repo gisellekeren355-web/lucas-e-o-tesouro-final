@@ -289,9 +289,9 @@ const scenes: Record<Exclude<SceneId, "dragonName" | "football" | "treasure" | "
 function Art({ type, dragonName }: { type?: Scene["art"]; dragonName: string }) {
   if (type === "road") {
     return (
-      <div className="hero-photo" role="img" aria-label="Lucas em uma moto vermelha">
-        <div className="photo-vignette" />
-        <div className="road-lines" />
+      <div className="hero-anime" role="img" aria-label="Animação de Lucas em sua moto vermelha">
+        <div className="hero-moon" />
+        <div className="hero-fireflies" />
       </div>
     );
   }
@@ -454,6 +454,46 @@ export default function GamePage() {
   }
 
   if (!current) return null;
+
+  if (scene === "title") {
+    return (
+      <main className="intro-shell">
+        <section className="intro-frame">
+          <nav className="intro-nav" aria-label="Navegação do jogo">
+            <span className="brand-mark">✦</span>
+            <div className="intro-nav-links">
+              <span className="active">Início</span>
+              <span>Aventura</span>
+              <span>Escolhas</span>
+            </div>
+            <button className="nav-start" onClick={() => go("crash")}>Iniciar jornada</button>
+          </nav>
+
+          <div className="intro-content">
+            <div className="intro-copy">
+              <p className="eyebrow">UMA AVENTURA DE ESCOLHAS</p>
+              <h1><span>Lucas</span> e o Tesouro Final</h1>
+              <p className="intro-description">Após um acidente de moto na floresta, uma jornada inesperada começa. Cada decisão poderá aproximá-lo da saída — e do verdadeiro tesouro.</p>
+              <button className="intro-button" onClick={() => go("crash")}>
+                <span>✦</span> Iniciar jornada <span>✦</span>
+              </button>
+              <div className="intro-features">
+                <div><strong>⚔</strong><span>Escolhas que mudam o caminho</span></div>
+                <div><strong>☾</strong><span>Segredos escondidos na floresta</span></div>
+                <div><strong>◆</strong><span>Um tesouro além do que se vê</span></div>
+              </div>
+            </div>
+
+            <div className="intro-visual">
+              <Art type="road" dragonName={dragonName} />
+            </div>
+          </div>
+
+          <div className="intro-bottom-ornament">♡</div>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className={`game-shell scene-${current.art ?? "forest"}`}>
