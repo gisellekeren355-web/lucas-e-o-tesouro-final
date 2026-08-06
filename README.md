@@ -1,17 +1,16 @@
 # Lucas e o Tesouro Final
 
-Pequeno RPG narrativo de escolhas feito em Next.js.
+Versão atualizada com:
 
-## Rodar localmente
+- mensagem pessoal antes da história;
+- novo contexto do Lucas em casa, ansioso, antes de sair de moto;
+- mapa de progresso da aventura;
+- mais decisões em todas as fases;
+- escolhas em sequência durante floresta, piratas, treinamento, templo, futebol e saída;
+- novo layout interno mais visual e interativo;
+- espaços preparados para inserir as imagens de cada cena depois;
+- tela inicial com a animação do Lucas na CB 300.
 
-```bash
-npm install
-npm run dev
-```
+## Publicação
 
-Abra `http://localhost:3000`.
-
-## Resposta do tesouro
-
-A resposta atualmente configurada está em `app/page.tsx`, na constante `FINAL_ANSWER`.
-Troque o texto antes de publicar caso a resposta correta seja outra.
+Envie as pastas `app` e `public` e os arquivos da raiz para o repositório do GitHub, substituindo os arquivos anteriores. A Vercel fará um novo deploy automaticamente.
