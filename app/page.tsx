@@ -10,7 +10,7 @@ type SceneId =
   | "forestChoice" | "exploreApproach" | "campSearch" | "eggChoice" | "healSearch" | "plantChoice" | "dragonReaction"
   | "dragonName" | "waterTrail" | "pirateChoice" | "stealWater" | "talkPirates" | "pirateFightStart" | "pirateFightMove" | "captain"
   | "ship" | "trainingChoice" | "trainingStyle" | "trainingTrial" | "refuseTraining" | "templeArrival" | "shadowOpening" | "shadowCounter" | "shadowFinal"
-  | "guardian" | "footballPrep" | "football" | "r1" | "roadChoice" | "fastObstacle" | "slowClue" | "treasure" | "final";
+  | "guardian" | "footballPrep" | "r1" | "roadChoice" | "fastObstacle" | "slowClue" | "treasure" | "final";
 
 type Choice = {
   label: string;
@@ -78,7 +78,7 @@ const chapterOrder: Record<string, number> = {
   dragonReaction: 2, dragonName: 2, waterTrail: 2,
   pirateChoice: 3, stealWater: 3, talkPirates: 3, pirateFightStart: 3, pirateFightMove: 3, captain: 3, ship: 3,
   trainingChoice: 4, trainingStyle: 4, trainingTrial: 4, refuseTraining: 4, templeArrival: 4, shadowOpening: 4, shadowCounter: 4, shadowFinal: 4,
-  guardian: 5, footballPrep: 5, football: 5,
+  guardian: 5, footballPrep: 5,
   r1: 6, roadChoice: 6, fastObstacle: 6, slowClue: 6,
   treasure: 7, final: 7
 };
@@ -645,10 +645,9 @@ function SceneVisual({ scene, art, title, dragonName }: { scene: SceneId; art: A
     templeArrival: { src: "/assets/fase-templo-espada.webp", kicker: "GLICÍNIAS NEGRAS", note: "O templo aparece depois de todas as decisões que prepararam Lucas para este momento.", alt: "Lucas diante do templo segurando uma espada luminosa com o dragão ao lado." },
     guardian: { src: "/assets/fase-futebol-guardiao.webp", kicker: "O CAMPO DOS ECOS", note: "Sem espadas: Lucas precisa atravessar o campo e alcançar o selo final.", alt: "Lucas com uma bola de futebol diante de um guardião em um campo antigo." },
     footballPrep: { src: "/assets/fase-futebol-guardiao.webp", kicker: "O CAMPO DOS ECOS", note: "O Guardião entra no caminho. Lucas precisa escolher como passar.", alt: "Lucas preparando um chute diante de um guardião em um campo antigo." },
-    football: { src: "/assets/fase-futebol-guardiao.webp", kicker: "ÚLTIMA JOGADA", note: "A bola encantada precisa chegar ao selo dourado para abrir a saída.", alt: "Lucas chutando uma bola luminosa em direção ao guardião." },
     r1: { src: "/assets/fase-r1-saida.webp", kicker: "A MÁQUINA ESCOLHIDA", note: "A R1 desperta quando a Bússola do Destino se transforma em chave.", alt: "Lucas pilotando uma R1 azul em uma estrada mágica ao lado do dragão." },
     roadChoice: { src: "/assets/fase-r1-saida.webp", kicker: "A ESTRADA FINAL", note: "Velocidade, atenção e confiança definem como ele deixa a floresta.", alt: "Lucas pilotando uma R1 azul em alta velocidade por uma estrada mágica." },
-    treasure: { src: "/assets/fase-tesouro-final.webp", kicker: "TESOURO FINAL", note: "Depois de toda a jornada, resta apenas a última resposta.", alt: "Lucas abrindo um baú luminoso cercado por tesouros e acompanhado do dragão." }
+    treasure: { src: "/assets/fase-tesouro-final.webp", kicker: "TESOURO FINAL", note: "A última cena da aventura. Sem prova, senha ou desafio.", alt: "Lucas abrindo um baú luminoso cercado por tesouros e acompanhado do dragão." }
   };
 
   const data = { ...visuals[art], ...(sceneVisuals[scene] ?? {}) };
@@ -714,7 +713,7 @@ function consequenceText(scene: SceneId, flags: GameFlags, dragonName: string) {
     if (flags.trainingChoice === "recusou") lines.push("Por ter recusado o treinamento, Lucas não consegue ferir a Sombra com força bruta. Ele terá de vencer usando observação, diálogo ou a ajuda do companheiro.");
   }
 
-  if (["guardian", "footballPrep", "football"].includes(scene)) {
+  if (["guardian", "footballPrep"].includes(scene)) {
     if (flags.shadowApproach === "diálogo") lines.push("Ao poupar tempo para ouvir a Sombra, Lucas recebeu uma pista: o Guardião sempre olha para o lado oposto antes de saltar.");
     if (flags.combatStyle === "proteção") lines.push(`O Guardião reconhece o instinto protetor de Lucas e permite que ${companion} participe de uma das jogadas.`);
     if (flags.combatStyle === "pressão") lines.push("O esforço excessivo no templo deixou a perna de Lucas pesada. Chutes fortes serão poderosos, mas menos precisos.");
@@ -879,22 +878,20 @@ export default function GamePage() {
       <main className="game-shell"><AdventureMap scene={scene}/><section className="game-stage single-stage">
         <SceneVisual scene={scene} art="treasure" title="O Tesouro Final" dragonName={dragonName}/>
         <div className="story-panel centered-panel"><p className="eyebrow">TESOURO FINAL</p><h1>Lucas chegou ao fim da jornada</h1>
-          <p className="lead">Depois da floresta, do dragão, dos piratas, do templo, do Guardião e da estrada final, não existe mais nenhuma prova para cumprir.</p>
-          <p className="lead">O baú se abre sozinho quando Lucas se aproxima. A luz que sai de dentro marca o fim da aventura — e tudo o que ele precisava fazer era chegar até aqui.</p>
-          <button className="primary-button" onClick={() => go("final")}>Finalizar jornada</button>
+          <p className="lead">Depois de tudo o que viveu na floresta, Lucas finalmente encontra o tesouro. Não existe senha, pergunta ou última prova.</p>
+          <p className="lead">O baú se abre e a luz dourada toma conta do lugar. A aventura está completa.</p>
+          <button className="primary-button" onClick={() => go("final")}>Encerrar aventura</button>
         </div>
       </section><GameControls back={back} restart={restart} canBack={history.length>0}/></main>
     );
   }
 
   if (scene === "final") {
-    const profile = destinyProfile(flags);
     return (
       <main className="game-shell"><AdventureMap scene={scene}/><section className="game-stage final-stage"><div className="final-card">
-        <div className="chest-open">✦ ◆ ✦</div><p className="eyebrow">FIM DA JORNADA</p><h1>Obrigada por viver essa história comigo ❤️</h1>
-        <p>Espero que você tenha gostado, mesmo eu tendo improvisado esse RPG do meu jeitinho kkkkk.</p>
-        <p>Fiz cada parte com muito carinho, pensando em você, nas coisas que você gosta e em tudo que vivemos juntos.</p>
-        <div className="destiny-result"><span>O destino construído por Lucas</span><strong>{profile}</strong><small>As escolhas feitas durante a aventura formaram este caminho.</small></div>
+        <div className="chest-open">✦ ◆ ✦</div><p className="eyebrow">FIM DA JORNADA</p><h1>Parabéns pela conquista, meu amor! ❤️</h1>
+        <p>Espero que tenha gostado desse jogo e dessa aventura que eu preparei para você.</p>
+        <p>Fiz tudo com muito carinho, pensando nas coisas que você gosta.</p>
         <p><strong>Eu te amo, vida. ❤️</strong></p>
         <small>Com amor, Giselle.</small>
       </div></section><GameControls back={back} restart={restart} canBack={false}/></main>
