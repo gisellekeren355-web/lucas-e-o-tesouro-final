@@ -657,23 +657,50 @@ function normalize(value: string) {
   return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
 }
 
-function SceneVisual({ art, title, dragonName }: { art: ArtType; title: string; dragonName: string }) {
+function SceneVisual({ scene, art, title, dragonName }: { scene: SceneId; art: ArtType; title: string; dragonName: string }) {
   const visuals: Record<ArtType, { icon: string; kicker: string; src: string; note: string; alt: string }> = {
-    home: { icon: "⌂", kicker: "NOITE NA CIDADE", src: "/assets/fase-casa-cidade.png", note: "O começo da aventura antes da floresta.", alt: "Lucas em casa ao lado da moto vermelha durante a noite." },
-    road: { icon: "➶", kicker: "BR · MADRUGADA", src: "/assets/fase-casa-cidade.png", note: "A volta de moto que muda tudo.", alt: "Lucas em casa ao lado da moto vermelha durante a noite." },
-    crash: { icon: "✧", kicker: "ACIDENTE NA FLORESTA", src: "/assets/fase-acidente-floresta.png", note: "O instante em que Lucas percebe que está sozinho na mata.", alt: "Lucas ferido ajoelhado na floresta ao lado da CB 300 caída." },
-    forest: { icon: "♧", kicker: "FLORESTA DESCONHECIDA", src: "/assets/fase-acidente-floresta.png", note: "A floresta esconde trilhas, plantas e mistérios.", alt: "Lucas ferido ajoelhado na floresta ao lado da CB 300 caída." },
-    camp: { icon: "⚔", kicker: "ACAMPAMENTO ABANDONADO", src: "/assets/fase-acidente-floresta.png", note: "Entre restos esquecidos, uma nova pista aparece.", alt: "Lucas ferido ajoelhado na floresta ao lado da CB 300 caída." },
-    dragon: { icon: "◇", kicker: dragonName ? `${dragonName.toUpperCase()} · COMPANHEIRO` : "UM NOVO COMPANHEIRO", src: "/assets/fase-dragao-nascimento.png", note: "O nascimento do vínculo mais importante da jornada.", alt: "Lucas ajoelhado diante de um pequeno dragão recém-nascido na floresta." },
-    pirates: { icon: "⚓", kicker: "NASCENTE DOS PIRATAS", src: "/assets/fase-piratas-escondido.png", note: "Água, perigo e escolhas que podem virar batalha.", alt: "Lucas escondido observando um acampamento pirata na floresta com o dragão ao lado." },
-    ship: { icon: "☸", kicker: "NAVIO DO CAPITÃO", src: "/assets/fase-piratas-escondido.png", note: "Depois da luta, o capitão revela uma rota maior que a floresta.", alt: "Lucas escondido observando um acampamento pirata na floresta com o dragão ao lado." },
-    training: { icon: "⚔", kicker: "TREINAMENTO DO CAÇADOR", src: "/assets/fase-templo-espada.png", note: "A espada e o templo preparam Lucas para a batalha final.", alt: "Lucas segurando uma espada luminosa diante do templo ao lado do dragão." },
-    temple: { icon: "✦", kicker: "GLICÍNIAS NEGRAS", src: "/assets/fase-templo-espada.png", note: "O templo guarda a sombra, a espada e a decisão mais difícil.", alt: "Lucas segurando uma espada luminosa diante do templo ao lado do dragão." },
-    football: { icon: "⚽", kicker: "CAMPO DO GUARDIÃO", src: "/assets/fase-futebol-guardiao.png", note: "Uma batalha decidida com leitura, calma e precisão.", alt: "Lucas preparando um chute em um campo antigo enquanto um guardião protege o gol." },
-    r1: { icon: "➤", kicker: "ESTRADA DA SAÍDA", src: "/assets/fase-r1-saida.png", note: "A última corrida leva Lucas para fora da floresta.", alt: "Lucas pilotando uma moto R1 azul em uma estrada mágica ao lado de um dragão." },
-    treasure: { icon: "◆", kicker: "TESOURO FINAL", src: "/assets/fase-tesouro-final.png", note: "A aventura termina onde o presente finalmente se revela.", alt: "Lucas abrindo um baú iluminado cercado por tesouros com o dragão ao lado." }
+    home: { icon: "⌂", kicker: "NOITE NA CIDADE", src: "/assets/cena-casa-pensando.webp", note: "O começo da aventura antes da floresta.", alt: "Lucas pensando em casa durante a noite." },
+    road: { icon: "➶", kicker: "BR · MADRUGADA", src: "/assets/cena-br-pilotando.webp", note: "A volta de moto que muda tudo.", alt: "Lucas pilotando a CB 300 vermelha por uma estrada durante a noite." },
+    crash: { icon: "✧", kicker: "ACIDENTE NA FLORESTA", src: "/assets/cena-ferido-celular.webp", note: "O instante em que Lucas percebe que está sozinho na mata.", alt: "Lucas ferido na floresta ao lado da moto caída olhando o celular." },
+    forest: { icon: "♧", kicker: "FLORESTA DESCONHECIDA", src: "/assets/cena-explorando-floresta.webp", note: "A floresta esconde trilhas, plantas e mistérios.", alt: "Lucas explorando uma trilha fechada na floresta." },
+    camp: { icon: "⚔", kicker: "ACAMPAMENTO ABANDONADO", src: "/assets/cena-encontra-espada.webp", note: "Entre restos esquecidos, uma nova pista aparece.", alt: "Lucas examinando uma espada antiga em um acampamento abandonado." },
+    dragon: { icon: "◇", kicker: dragonName ? `${dragonName.toUpperCase()} · COMPANHEIRO` : "UM NOVO COMPANHEIRO", src: "/assets/fase-dragao-nascimento.webp", note: "O nascimento do vínculo mais importante da jornada.", alt: "Lucas ajoelhado diante de um pequeno dragão recém-nascido na floresta." },
+    pirates: { icon: "⚓", kicker: "NASCENTE DOS PIRATAS", src: "/assets/fase-piratas-escondido.webp", note: "Água, perigo e escolhas que podem virar batalha.", alt: "Lucas escondido observando um acampamento pirata na floresta com o dragão ao lado." },
+    ship: { icon: "☸", kicker: "NAVIO DO CAPITÃO", src: "/assets/fase-piratas-escondido.webp", note: "Depois da luta, o capitão revela uma rota maior que a floresta.", alt: "Lucas escondido observando o acampamento pirata e o navio entre as árvores." },
+    training: { icon: "⚔", kicker: "TREINAMENTO DO CAÇADOR", src: "/assets/fase-templo-espada.webp", note: "A espada e o templo preparam Lucas para a batalha final.", alt: "Lucas segurando uma espada luminosa diante do templo ao lado do dragão." },
+    temple: { icon: "✦", kicker: "GLICÍNIAS NEGRAS", src: "/assets/fase-templo-espada.webp", note: "O templo guarda a sombra, a espada e a decisão mais difícil.", alt: "Lucas segurando uma espada luminosa diante do templo ao lado do dragão." },
+    football: { icon: "⚽", kicker: "CAMPO DO GUARDIÃO", src: "/assets/fase-futebol-guardiao.webp", note: "Uma batalha decidida com leitura, calma e precisão.", alt: "Lucas preparando um chute em um campo antigo enquanto um guardião protege o gol." },
+    r1: { icon: "➤", kicker: "ESTRADA DA SAÍDA", src: "/assets/fase-r1-saida.webp", note: "A última corrida leva Lucas para fora da floresta.", alt: "Lucas pilotando uma moto R1 azul em uma estrada mágica ao lado de um dragão." },
+    treasure: { icon: "◆", kicker: "TESOURO FINAL", src: "/assets/fase-tesouro-final.webp", note: "A aventura termina onde o presente finalmente se revela.", alt: "Lucas abrindo um baú iluminado cercado por tesouros com o dragão ao lado." }
   };
-  const data = visuals[art];
+
+  const sceneVisuals: Partial<Record<SceneId, Partial<{ icon: string; kicker: string; src: string; note: string; alt: string }>>> = {
+    message: { src: "/assets/cena-mensagem-mapa.webp", kicker: "ANTES DE COMEÇAR", note: "Uma pequena introdução antes de Lucas entrar na aventura.", alt: "Lucas lendo um mapa luminoso sobre uma mesa com dados e uma chave." },
+    home: { src: "/assets/cena-casa-pensando.webp", kicker: "CASA · NOITE", note: "Lucas tenta organizar a cabeça antes de decidir sair.", alt: "Lucas pensativo em casa perto da janela durante a noite." },
+    homeChoice: { src: "/assets/cena-casa-chave-moto.webp", kicker: "A DECISÃO DE SAIR", note: "A chave na mão marca o primeiro passo da jornada.", alt: "Lucas ao lado da CB 300 vermelha segurando a chave e o capacete." },
+    road: { src: "/assets/cena-br-pilotando.webp", kicker: "BR · MADRUGADA", note: "A cidade fica para trás enquanto a estrada se abre à frente.", alt: "Lucas pilotando a CB 300 vermelha por uma BR durante a noite." },
+    crash: { src: "/assets/cena-acidente-queda.webp", kicker: "O ACIDENTE", note: "Em segundos, a volta tranquila se transforma em queda e escuridão.", alt: "Lucas caindo com a moto vermelha na vegetação após perder o controle." },
+    crashReaction: { src: "/assets/cena-ferido-celular.webp", kicker: "SEM SINAL", note: "Ferido e sem ajuda, Lucas começa a entender a gravidade da situação.", alt: "Lucas ferido na floresta olhando o celular ao lado da moto caída." },
+    forestChoice: { src: "/assets/cena-moto-quebrada-floresta.webp", kicker: "A MOTO NÃO RESPONDE", note: "A CB 300 está danificada demais para tirá-lo dali.", alt: "Lucas tentando mover a moto vermelha quebrada dentro da floresta." },
+    exploreApproach: { src: "/assets/cena-explorando-floresta.webp", kicker: "TRILHA DESCONHECIDA", note: "Marcas e fumaça levam Lucas cada vez mais fundo na mata.", alt: "Lucas explorando uma trilha na mata e observando sinais adiante." },
+    campSearch: { src: "/assets/cena-encontra-espada.webp", kicker: "A ESPADA ANTIGA", note: "No acampamento abandonado, Lucas encontra uma arma que parece esperar por ele.", alt: "Lucas examinando uma espada antiga em um acampamento abandonado." },
+    eggChoice: { src: "/assets/cena-encontra-ovo.webp", kicker: "O OVO MISTERIOSO", note: "O objeto que caiu da árvore começa a revelar o primeiro grande segredo da floresta.", alt: "Lucas tocando um grande ovo luminoso encontrado na floresta." },
+    healSearch: { src: "/assets/cena-explorando-floresta.webp", kicker: "CAMINHO DA PRUDÊNCIA", note: "Mesmo ferido, Lucas procura algo que possa estancar o sangue.", alt: "Lucas avançando com cuidado por uma trilha fechada na floresta." },
+    plantChoice: { src: "/assets/cena-ferido-celular.webp", kicker: "A PLANTA DO SONO", note: "A tentativa de cuidar do ferimento cobra um preço inesperado.", alt: "Lucas ferido e exausto na floresta ao lado da moto caída." },
+    dragonReaction: { src: "/assets/fase-dragao-nascimento.webp", kicker: "UM NOVO COMPANHEIRO", note: "O filhote se aproxima e começa a confiar em Lucas.", alt: "Lucas conhecendo um pequeno dragão recém-nascido na floresta." },
+    dragonName: { src: "/assets/fase-dragao-nascimento.webp", kicker: "UM NOME PARA O COMPANHEIRO", note: "A partir daqui, o nome escolhido acompanhará os dois até o tesouro final.", alt: "Lucas junto do pequeno dragão recém-nascido." },
+    waterTrail: { src: "/assets/fase-piratas-escondido.webp", kicker: "VOZES ALÉM DA NASCENTE", note: "A busca por água conduz os dois até um acampamento perigoso.", alt: "Lucas escondido observando um acampamento pirata junto de seu dragão." },
+    pirateChoice: { src: "/assets/fase-piratas-escondido.webp", kicker: "DECISÃO NO ACAMPAMENTO", note: "Antes de agir, Lucas precisa decidir se confia na furtividade ou na conversa.", alt: "Lucas observando escondido os piratas na floresta." },
+    templeArrival: { src: "/assets/fase-templo-espada.webp", kicker: "GLICÍNIAS NEGRAS", note: "O templo aparece depois de todas as decisões que prepararam Lucas para este momento.", alt: "Lucas diante do templo segurando uma espada luminosa com o dragão ao lado." },
+    guardian: { src: "/assets/fase-futebol-guardiao.webp", kicker: "O GUARDIÃO", note: "A espada deixa de importar. Agora a saída depende de três gols.", alt: "Lucas com uma bola de futebol diante de um guardião em um campo antigo." },
+    footballPrep: { src: "/assets/fase-futebol-guardiao.webp", kicker: "DESAFIO DO GUARDIÃO", note: "Lucas observa o goleiro antes de escolher como atacar.", alt: "Lucas preparando um chute diante de um guardião em um campo antigo." },
+    football: { src: "/assets/fase-futebol-guardiao.webp", kicker: "TRÊS GOLS PARA SAIR", note: "Cada chute aproxima Lucas do portão que leva para fora da floresta.", alt: "Lucas chutando uma bola luminosa em direção ao guardião." },
+    r1: { src: "/assets/fase-r1-saida.webp", kicker: "A MÁQUINA ESCOLHIDA", note: "A R1 desperta quando a Bússola do Destino se transforma em chave.", alt: "Lucas pilotando uma R1 azul em uma estrada mágica ao lado do dragão." },
+    roadChoice: { src: "/assets/fase-r1-saida.webp", kicker: "A ESTRADA FINAL", note: "Velocidade, atenção e confiança definem como ele deixa a floresta.", alt: "Lucas pilotando uma R1 azul em alta velocidade por uma estrada mágica." },
+    treasure: { src: "/assets/fase-tesouro-final.webp", kicker: "TESOURO FINAL", note: "Depois de toda a jornada, resta apenas a última resposta.", alt: "Lucas abrindo um baú luminoso cercado por tesouros e acompanhado do dragão." }
+  };
+
+  const data = { ...visuals[art], ...(sceneVisuals[scene] ?? {}) };
   return (
     <div className={`scene-visual visual-${art}`}>
       <img className="scene-image" src={data.src} alt={data.alt} />
@@ -919,7 +946,7 @@ export default function GamePage() {
   if (scene === "dragonName") {
     return (
       <main className="game-shell"><AdventureMap scene={scene}/><section className="game-stage single-stage">
-        <SceneVisual art="dragon" title="Um nome para o companheiro" dragonName="" />
+        <SceneVisual scene={scene} art="dragon" title="Um nome para o companheiro" dragonName="" />
         <div className="story-panel centered-panel"><p className="eyebrow">CAPÍTULO III · UM NOVO COMPANHEIRO</p><h1>Como Lucas deseja chamar o dragão?</h1><p className="lead">O nome escolhido aparecerá nos diálogos e acompanhará Lucas até o final.</p>
           <input className="text-input" value={draftName} onChange={(e) => { setDraftName(e.target.value); if (nameError) setNameError(""); }} placeholder="Digite o nome do dragão" maxLength={24} autoFocus/>
           {nameError && <p className="error-text">{nameError}</p>}
@@ -932,7 +959,7 @@ export default function GamePage() {
   if (scene === "football") {
     return (
       <main className="game-shell"><AdventureMap scene={scene}/><section className="game-stage single-stage">
-        <SceneVisual art="football" title="Três gols para abrir o portão" dragonName={dragonName}/>
+        <SceneVisual scene={scene} art="football" title="Três gols para abrir o portão" dragonName={dragonName}/>
         <div className="story-panel centered-panel football-scene"><p className="eyebrow">DESAFIO DO GUARDIÃO</p><h1>Marque três gols</h1><p className="lead">A estratégia escolhida antes do jogo pode facilitar a leitura do goleiro.</p>
           <div className="scoreboard"><span>Lucas</span><strong>{goals}/3</strong><span>Guardião: {keeperSide}</span></div>
           <div className="goal"><div className={`keeper keeper-${keeperSide}`}>◆</div><div className="net"/></div>
@@ -946,7 +973,7 @@ export default function GamePage() {
   if (scene === "treasure") {
     return (
       <main className="game-shell"><AdventureMap scene={scene}/><section className="game-stage single-stage">
-        <SceneVisual art="treasure" title="A última barreira" dragonName={dragonName}/>
+        <SceneVisual scene={scene} art="treasure" title="A última barreira" dragonName={dragonName}/>
         <div className="story-panel centered-panel"><p className="eyebrow">TESOURO FINAL</p><h1>Diga a primeira coisa que você me mandou</h1><p className="lead">A resposta correta desbloqueará o seu presente.</p>
           <input className="text-input" value={answer} onChange={(e) => setAnswer(e.target.value)} placeholder="Digite sua resposta"/>
           {finalError && <p className="error-text">{finalError}</p>}
@@ -983,7 +1010,7 @@ export default function GamePage() {
     <main className={`game-shell scene-${current.art}`}>
       <AdventureMap scene={scene}/>
       <section className="game-stage">
-        <SceneVisual art={current.art} title={current.title} dragonName={dragonName}/>
+        <SceneVisual scene={scene} art={current.art} title={current.title} dragonName={dragonName}/>
         <div className="story-panel">
           <div className="story-header"><div><p className="eyebrow">{current.chapter}</p><h1>{current.title}</h1></div>{dynamicSummary.length>0 && <div className="status-pills">{dynamicSummary.map(x=><span key={x}>{x}</span>)}</div>}</div>
           <div className="story-copy">
