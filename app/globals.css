@@ -27,3 +27,19 @@
 .destiny-result span { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
 .destiny-result strong { font-family: Georgia, serif; font-size: 1.65rem; color: #8d6823; }
 .destiny-result small { opacity: .75; }
+
+
+/* imagens das fases */
+.scene-visual{background:#06100c;align-items:stretch;padding:0;isolation:isolate}
+.scene-visual:before{display:none}
+.scene-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.scene-image-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(4,8,6,.12) 0%,rgba(4,8,6,.18) 24%,rgba(4,8,6,.58) 70%,rgba(2,4,3,.94) 100%),linear-gradient(90deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.02) 42%,rgba(0,0,0,.48) 100%)}
+.visual-fog{z-index:2;background:radial-gradient(ellipse at center,rgba(255,227,160,.14),transparent 40%),linear-gradient(to top,rgba(0,0,0,.55),transparent 40%)}
+.visual-orbit{display:none}
+.visual-symbol{z-index:3;left:24px;top:22px;transform:none;font-size:1.15rem;line-height:1;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid rgba(240,211,138,.55);background:rgba(4,8,6,.45);backdrop-filter:blur(5px);box-shadow:0 10px 30px rgba(0,0,0,.3);animation:none}
+.visual-caption{position:absolute;left:24px;right:24px;bottom:24px;z-index:3;padding:18px 18px 16px;border:1px solid rgba(212,170,87,.28);background:linear-gradient(180deg,rgba(6,12,9,.34),rgba(6,12,9,.8));backdrop-filter:blur(8px);box-shadow:0 18px 45px rgba(0,0,0,.32)}
+.visual-caption span{font-size:.68rem;margin-bottom:10px}
+.visual-caption strong{font-size:clamp(1.45rem,2.5vw,2.3rem);line-height:1.08;text-wrap:balance;color:#f3e6c1;text-shadow:0 2px 20px rgba(0,0,0,.35)}
+.visual-caption small{margin-top:10px;color:#d7c59e;font-style:normal;line-height:1.45}
+@media(max-width:930px){.scene-image{object-position:center top}.visual-caption{left:18px;right:18px;bottom:18px;padding:14px}.visual-symbol{left:18px;top:18px}}
+@media(max-width:620px){.visual-caption strong{font-size:1.45rem}.visual-caption small{font-size:.78rem}.visual-symbol{width:40px;height:40px;font-size:1rem}}

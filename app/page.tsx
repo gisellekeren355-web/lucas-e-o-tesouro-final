@@ -658,31 +658,32 @@ function normalize(value: string) {
 }
 
 function SceneVisual({ art, title, dragonName }: { art: ArtType; title: string; dragonName: string }) {
-  const labels: Record<ArtType, { icon: string; kicker: string }> = {
-    home: { icon: "⌂", kicker: "NOITE NA CIDADE" },
-    road: { icon: "➶", kicker: "BR · MADRUGADA" },
-    crash: { icon: "✧", kicker: "ACIDENTE NA FLORESTA" },
-    forest: { icon: "♧", kicker: "FLORESTA DESCONHECIDA" },
-    camp: { icon: "⚔", kicker: "ACAMPAMENTO ABANDONADO" },
-    dragon: { icon: "◇", kicker: dragonName ? `${dragonName.toUpperCase()} · COMPANHEIRO` : "UM NOVO COMPANHEIRO" },
-    pirates: { icon: "⚓", kicker: "NASCENTE DOS PIRATAS" },
-    ship: { icon: "☸", kicker: "NAVIO DO CAPITÃO" },
-    training: { icon: "⚔", kicker: "TREINAMENTO DO CAÇADOR" },
-    temple: { icon: "✦", kicker: "GLICÍNIAS NEGRAS" },
-    football: { icon: "⚽", kicker: "CAMPO DO GUARDIÃO" },
-    r1: { icon: "➤", kicker: "ESTRADA DA SAÍDA" },
-    treasure: { icon: "◆", kicker: "TESOURO FINAL" }
+  const visuals: Record<ArtType, { icon: string; kicker: string; src: string; note: string; alt: string }> = {
+    home: { icon: "⌂", kicker: "NOITE NA CIDADE", src: "/assets/fase-casa-cidade.png", note: "O começo da aventura antes da floresta.", alt: "Lucas em casa ao lado da moto vermelha durante a noite." },
+    road: { icon: "➶", kicker: "BR · MADRUGADA", src: "/assets/fase-casa-cidade.png", note: "A volta de moto que muda tudo.", alt: "Lucas em casa ao lado da moto vermelha durante a noite." },
+    crash: { icon: "✧", kicker: "ACIDENTE NA FLORESTA", src: "/assets/fase-acidente-floresta.png", note: "O instante em que Lucas percebe que está sozinho na mata.", alt: "Lucas ferido ajoelhado na floresta ao lado da CB 300 caída." },
+    forest: { icon: "♧", kicker: "FLORESTA DESCONHECIDA", src: "/assets/fase-acidente-floresta.png", note: "A floresta esconde trilhas, plantas e mistérios.", alt: "Lucas ferido ajoelhado na floresta ao lado da CB 300 caída." },
+    camp: { icon: "⚔", kicker: "ACAMPAMENTO ABANDONADO", src: "/assets/fase-acidente-floresta.png", note: "Entre restos esquecidos, uma nova pista aparece.", alt: "Lucas ferido ajoelhado na floresta ao lado da CB 300 caída." },
+    dragon: { icon: "◇", kicker: dragonName ? `${dragonName.toUpperCase()} · COMPANHEIRO` : "UM NOVO COMPANHEIRO", src: "/assets/fase-dragao-nascimento.png", note: "O nascimento do vínculo mais importante da jornada.", alt: "Lucas ajoelhado diante de um pequeno dragão recém-nascido na floresta." },
+    pirates: { icon: "⚓", kicker: "NASCENTE DOS PIRATAS", src: "/assets/fase-piratas-escondido.png", note: "Água, perigo e escolhas que podem virar batalha.", alt: "Lucas escondido observando um acampamento pirata na floresta com o dragão ao lado." },
+    ship: { icon: "☸", kicker: "NAVIO DO CAPITÃO", src: "/assets/fase-piratas-escondido.png", note: "Depois da luta, o capitão revela uma rota maior que a floresta.", alt: "Lucas escondido observando um acampamento pirata na floresta com o dragão ao lado." },
+    training: { icon: "⚔", kicker: "TREINAMENTO DO CAÇADOR", src: "/assets/fase-templo-espada.png", note: "A espada e o templo preparam Lucas para a batalha final.", alt: "Lucas segurando uma espada luminosa diante do templo ao lado do dragão." },
+    temple: { icon: "✦", kicker: "GLICÍNIAS NEGRAS", src: "/assets/fase-templo-espada.png", note: "O templo guarda a sombra, a espada e a decisão mais difícil.", alt: "Lucas segurando uma espada luminosa diante do templo ao lado do dragão." },
+    football: { icon: "⚽", kicker: "CAMPO DO GUARDIÃO", src: "/assets/fase-futebol-guardiao.png", note: "Uma batalha decidida com leitura, calma e precisão.", alt: "Lucas preparando um chute em um campo antigo enquanto um guardião protege o gol." },
+    r1: { icon: "➤", kicker: "ESTRADA DA SAÍDA", src: "/assets/fase-r1-saida.png", note: "A última corrida leva Lucas para fora da floresta.", alt: "Lucas pilotando uma moto R1 azul em uma estrada mágica ao lado de um dragão." },
+    treasure: { icon: "◆", kicker: "TESOURO FINAL", src: "/assets/fase-tesouro-final.png", note: "A aventura termina onde o presente finalmente se revela.", alt: "Lucas abrindo um baú iluminado cercado por tesouros com o dragão ao lado." }
   };
-  const data = labels[art];
+  const data = visuals[art];
   return (
     <div className={`scene-visual visual-${art}`}>
+      <img className="scene-image" src={data.src} alt={data.alt} />
+      <div className="scene-image-overlay" />
       <div className="visual-fog" />
-      <div className="visual-orbit" />
       <div className="visual-symbol">{data.icon}</div>
       <div className="visual-caption">
         <span>{data.kicker}</span>
         <strong>{title}</strong>
-        <small>Espaço preparado para a imagem desta cena</small>
+        <small>{data.note}</small>
       </div>
     </div>
   );
