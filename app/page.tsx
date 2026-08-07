@@ -61,8 +61,6 @@ const initialFlags: GameFlags = {
   finalRoad: ""
 };
 
-const FINAL_ANSWER = "tinha que ser homis kskks";
-
 const chapters = [
   { id: "home", label: "Casa", icon: "⌂" },
   { id: "forest", label: "Floresta", icon: "♧" },
@@ -91,10 +89,8 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     title: "Uma mensagem para você",
     art: "home",
     text: [
-      "Oi, vida. Tudo bem? Antes de tudo, quero te desejar parabéns e muitos anos de vida. Espero que você consiga conquistar tudo o que deseja e que esse novo ciclo seja muito especial.",
-      "Eu tentei criar um RPG porque sei que você gosta, mas acho que não deu muito certo kkkkk. Então improvisei mais ou menos e fiz essa aventura para você.",
-      "Enfim… segue aí e boa sorte.",
-      "Talvez não tenha ficado exatamente como um RPG de verdade, mas cada parte foi pensada com carinho, lembrando das coisas que você gosta e das nossas histórias."
+      "Oi, vida. Antes de tudo, parabéns! Espero que esse novo ciclo seja muito especial e que você conquiste tudo o que deseja.",
+      "Eu tentei criar um RPG porque sei que você gosta, mas improvisei essa aventura do meu jeitinho kkkkk. Fiz tudo pensando em você."
     ],
     prompt: "Preparado para entrar na história?",
     choices: [{ label: "Começar a aventura", next: "home", tone: "gold" }]
@@ -105,8 +101,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "home",
     text: [
       "Certo dia, Lucas estava em casa se sentindo ansioso e inquieto. Ele tentou se distrair, mas nada parecia funcionar.",
-      "Depois de alguns minutos olhando para a chave da CB 300 vermelha, decidiu sair para espairecer e dar uma volta pela cidade.",
-      "Do lado de fora, a noite parecia calma demais. Lucas respirou fundo, colocou o celular no bolso e decidiu que alguns minutos sobre duas rodas poderiam silenciar a confusão dentro da cabeça."
+      "Depois de alguns minutos olhando para a chave da CB 300 vermelha, decidiu sair para espairecer e dar uma volta pela cidade."
     ],
     prompt: "Antes de sair, como Lucas tenta organizar a cabeça?",
     choices: [
@@ -121,8 +116,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "home",
     text: [
       "Lucas veste a jaqueta, pega a chave e desce até a moto. O motor da CB 300 desperta e o som familiar traz uma sensação de liberdade.",
-      "Ele decide não planejar o caminho. Só quer andar até a ansiedade diminuir.",
-      "Antes de colocar o capacete, ele permaneceu alguns segundos parado diante da moto. A ansiedade ainda estava ali, mas o ronco conhecido do motor parecia dizer que a noite poderia tomar outro rumo."
+      "Ele decide não planejar o caminho. Só quer andar até a ansiedade diminuir."
     ],
     prompt: "Qual caminho ele escolhe na cidade?",
     choices: [
@@ -137,9 +131,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "road",
     text: [
       "Depois de algum tempo pilotando sem destino certo, Lucas acaba entrando em uma BR. A estrada está tranquila, o vento bate contra sua jaqueta e, aos poucos, sua mente começa a ficar mais leve.",
-      "A cidade desaparece atrás dele. Restam apenas o farol, o som do motor e a faixa branca atravessando a escuridão.",
-      "Até que uma sombra atravessa a pista.",
-      "As luzes dos postes ficaram cada vez mais distantes. Lucas percebeu que havia ido mais longe do que pretendia, porém não voltou; naquele momento, continuar parecia mais fácil do que encarar novamente o silêncio de casa."
+      "A cidade desaparece atrás dele. Restam apenas o farol, o som do motor e a faixa branca atravessando a escuridão."
     ],
     prompt: "Lucas tem apenas um instante para reagir.",
     choices: [
@@ -154,9 +146,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "crash",
     text: [
       "O guidão vira, os pneus perdem o contato com o asfalto e a CB 300 atravessa a vegetação.",
-      "Por alguns segundos, tudo se transforma em metal raspando, folhas quebrando e uma luz branca diante dos olhos.",
-      "Quando Lucas desperta, está ferido no meio de uma floresta desconhecida. A moto está caída perto dele e nenhum sinal da BR pode ser visto.",
-      "A dor veio aos poucos. Primeiro no ombro, depois na barriga e nas pernas. O cheiro de terra molhada misturava-se ao de combustível, enquanto folhas ainda caíam ao redor da moto."
+      "Por alguns segundos, tudo se transforma em metal raspando, folhas quebrando e uma luz branca diante dos olhos."
     ],
     prompt: "Ele chama por ajuda, mas ninguém responde. O que verifica primeiro?",
     choices: [
@@ -171,8 +161,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "crash",
     text: [
       "O celular está sem sinal, a moto não liga e o ferimento continua sangrando. Lucas percebe que ficar parado não resolverá nada.",
-      "A floresta é densa, úmida e estranhamente silenciosa. Entre as árvores, dois caminhos parecem possíveis.",
-      "Lucas tentou reconhecer algum som de carros ao longe, mas ouviu apenas o vento passando pelas copas. A sensação de estar sendo observado tornou o silêncio ainda mais pesado."
+      "A floresta é densa, úmida e estranhamente silenciosa. Entre as árvores, dois caminhos parecem possíveis."
     ],
     prompt: "Qual necessidade vem primeiro?",
     choices: [
@@ -187,8 +176,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "crash",
     text: [
       "Lucas tenta levantar a CB 300 e verifica o painel. Nada acende. A queda danificou mais do que ele consegue reparar sem ferramentas.",
-      "Ao ouvir um estalo entre as árvores, entende que precisa sair dali antes que escureça ainda mais.",
-      "Ele passou a mão pelo tanque arranhado e prometeu a si mesmo que voltaria para buscá-la. Antes disso, precisaria descobrir onde estava — e o que havia naquela floresta."
+      "Ao ouvir um estalo entre as árvores, entende que precisa sair dali antes que escureça ainda mais."
     ],
     prompt: "Agora ele precisa escolher.",
     choices: [
@@ -202,8 +190,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "forest",
     text: [
       "Lucas segue por um caminho estreito e encontra pegadas antigas, galhos cortados e restos de tecido presos nos arbustos.",
-      "Mais à frente, uma fumaça quase apagada sobe entre as árvores. Pode ser ajuda — ou perigo.",
-      "Quanto mais avançava, mais a vegetação parecia fechar o caminho atrás dele. As marcas encontradas não eram recentes, mas provavam que outra pessoa já havia sobrevivido tempo suficiente para passar por ali."
+      "Mais à frente, uma fumaça quase apagada sobe entre as árvores. Pode ser ajuda — ou perigo."
     ],
     prompt: "Como se aproximar?",
     choices: [
@@ -218,8 +205,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "camp",
     text: [
       "O local está vazio há muito tempo. Há madeira apodrecida, uma fogueira fria e uma mochila rasgada.",
-      "Sob um pano coberto de folhas, Lucas encontra uma espada antiga ainda afiada. Próximo dali, árvores carregadas de frutos cercam uma pedra enorme.",
-      "Lucas examinou o lugar com cuidado. Havia pratos quebrados, símbolos riscados na madeira e uma fotografia tão desgastada que já não mostrava rosto algum. Alguém havia deixado o acampamento às pressas."
+      "Sob um pano coberto de folhas, Lucas encontra uma espada antiga ainda afiada. Próximo dali, árvores carregadas de frutos cercam uma pedra enorme."
     ],
     prompt: "O que ele faz primeiro?",
     choices: [
@@ -234,8 +220,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "dragon",
     text: [
       "Ao tentar alcançar um fruto alto, algo pesado despenca e acerta Lucas. Ele desmaia por alguns minutos.",
-      "Quando acorda, percebe que o objeto é um enorme ovo coberto por marcas luminosas. A casca vibra como se algo respirasse lá dentro.",
-      "Ao aproximar o ouvido, Lucas escutou pequenas batidas vindas do interior. Não pareciam ameaçadoras; soavam como o coração acelerado de uma criatura que também queria sair dali."
+      "Quando acorda, percebe que o objeto é um enorme ovo coberto por marcas luminosas. A casca vibra como se algo respirasse lá dentro."
     ],
     prompt: "O que Lucas faz com o ovo?",
     choices: [
@@ -250,8 +235,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "forest",
     text: [
       "Lucas anda com dificuldade e encontra uma área úmida coberta por plantas diferentes das demais.",
-      "Uma delas possui folhas grossas e um líquido transparente. Ele se lembra de ter visto algo semelhante sendo usado em ferimentos, mas não tem certeza.",
-      "Cada passo puxava o ferimento e deixava um rastro discreto nas folhas. Mesmo assim, Lucas obrigou-se a observar as plantas com atenção, sabendo que uma escolha errada poderia piorar tudo."
+      "Uma delas possui folhas grossas e um líquido transparente. Ele se lembra de ter visto algo semelhante sendo usado em ferimentos, mas não tem certeza."
     ],
     prompt: "Como testar a planta?",
     choices: [
@@ -266,8 +250,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "forest",
     text: [
       "O sangramento diminui, mas a visão de Lucas começa a ficar pesada. A planta também possui um forte efeito sonífero.",
-      "Ele tenta permanecer acordado, porém cai entre as folhas. Quando desperta, sente algo molhado em seu rosto: um pequeno dragão está lambendo sua bochecha.",
-      "Durante o sono, ele sonhou com asas cruzando um céu vermelho e uma voz distante chamando seu nome. Ao despertar, não sabia se tinha sido apenas efeito da planta ou um aviso daquela floresta."
+      "Ele tenta permanecer acordado, porém cai entre as folhas. Quando desperta, sente algo molhado em seu rosto: um pequeno dragão está lambendo sua bochecha."
     ],
     prompt: "Como Lucas reage ao animal desconhecido?",
     choices: [
@@ -282,8 +265,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "dragon",
     text: [
       "O pequeno dragão inclina a cabeça e observa Lucas com curiosidade. Apesar das garras e da fumaça saindo de suas narinas, ele parece mais perdido do que perigoso.",
-      "Depois de alguns instantes, a criatura se aproxima e encosta a cabeça na perna de Lucas. Ela decidiu acompanhá-lo.",
-      "O filhote tinha os olhos atentos e uma das asas ainda amassada, como se tivesse acabado de nascer. Lucas percebeu que, apesar de estranho, aquele encontro talvez não fosse um acidente."
+      "Depois de alguns instantes, a criatura se aproxima e encosta a cabeça na perna de Lucas. Ela decidiu acompanhá-lo."
     ],
     prompt: "Como fortalecer essa confiança?",
     choices: [
@@ -298,8 +280,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "pirates",
     text: [
       "Lucas e seu novo companheiro escutam água correndo. Ao seguir o som, também ouvem vozes e o barulho de barris sendo arrastados.",
-      "Atrás de pedras cobertas por musgo, existe um acampamento pirata construído ao redor de uma nascente. Lucas precisa de água, mas os homens estão armados.",
-      "A sede tornava difícil ignorar a nascente. Lucas se abaixou atrás das pedras, observando bandeiras rasgadas, facas sobre mesas e um navio impossível encalhado entre árvores gigantes."
+      "Atrás de pedras cobertas por musgo, existe um acampamento pirata construído ao redor de uma nascente. Lucas precisa de água, mas os homens estão armados."
     ],
     prompt: "Antes de agir, o que ele observa?",
     choices: [
@@ -314,8 +295,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "pirates",
     text: [
       "O dragão se esconde atrás de Lucas, mas sua cauda inquieta bate nas pedras. Qualquer erro poderá chamar atenção.",
-      "Lucas precisa decidir como entrar no acampamento.",
-      "Os homens riam alto, mas mantinham as armas sempre próximas. Pela maneira como vigiavam a floresta, Lucas entendeu que os piratas também temiam alguma coisa escondida além do acampamento."
+      "Lucas precisa decidir como entrar no acampamento."
     ],
     prompt: "Qual abordagem usar?",
     choices: [
@@ -330,8 +310,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "pirates",
     text: [
       "Lucas alcança um barril enquanto os piratas discutem. O dragão tenta segui-lo, mas esbarra em uma caneca de metal.",
-      "O objeto cai e o som ecoa pelo acampamento. Um pirata vê a espada e grita que Lucas veio roubar suas coisas.",
-      "Por um instante, tudo ficou imóvel. Então cadeiras arrastaram, mãos buscaram espadas e o acampamento inteiro se voltou para Lucas. A sede havia deixado de ser o maior problema."
+      "O objeto cai e o som ecoa pelo acampamento. Um pirata vê a espada e grita que Lucas veio roubar suas coisas."
     ],
     prompt: "A luta parece inevitável. Qual é a primeira ação?",
     choices: [
@@ -346,8 +325,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "pirates",
     text: [
       "Lucas sai do esconderijo com as mãos levantadas e diz que precisa apenas de água.",
-      "Um pirata ri, chama o dragão de lagarto de estimação e puxa sua cauda. O dragão solta uma chama e queima o chapéu dele. Os demais sacam as armas.",
-      "Lucas ainda tentou manter a voz calma, mas o filhote mostrou os dentes ao sentir a cauda ser puxada. A pequena chama arrancou risadas por apenas um segundo — até que o chapéu começou a queimar."
+      "Um pirata ri, chama o dragão de lagarto de estimação e puxa sua cauda. O dragão solta uma chama e queima o chapéu dele. Os demais sacam as armas."
     ],
     prompt: "Como Lucas impede que a situação piore?",
     choices: [
@@ -362,8 +340,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "pirates",
     text: [
       "Os piratas cercam Lucas. Alguns avançam pela frente enquanto outros tentam alcançar o dragão pelos lados.",
-      "O terreno está cheio de barris, cordas e tábuas soltas. Lucas pode usar o ambiente a seu favor.",
-      "Lucas apertou o cabo da espada antiga. Nunca havia lutado daquele jeito, mas seus movimentos pareciam guiados por uma memória que não era sua, como se a própria lâmina reconhecesse o perigo."
+      "O terreno está cheio de barris, cordas e tábuas soltas. Lucas pode usar o ambiente a seu favor."
     ],
     prompt: "Qual estratégia ele escolhe?",
     choices: [
@@ -378,8 +355,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "pirates",
     text: [
       "Lucas e o dragão derrubam boa parte dos piratas, mas três homens ainda bloqueiam a saída.",
-      "Atrás deles, uma figura permanece imóvel, observando a batalha do convés do navio.",
-      "O chão estava coberto de água, madeira quebrada e faíscas. Lucas respirava com dificuldade, enquanto seu companheiro permanecia perto dele, esperando o próximo sinal."
+      "Atrás deles, uma figura permanece imóvel, observando a batalha do convés do navio."
     ],
     prompt: "Como encerrar a luta?",
     choices: [
@@ -394,9 +370,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "pirates",
     text: [
       "Quando o último pirata cai, o capitão se aproxima batendo palmas lentamente.",
-      "“Que bela luta, meninos. E que animal habilidoso você tem, Lucas.”",
-      "Ele oferece água e diz conhecer algo capaz de tirar os dois da floresta, mas deixa claro que ainda precisa decidir se pode confiar neles.",
-      "O capitão não demonstrava medo nem raiva pela derrota dos homens. Seu olhar estava preso à espada de Lucas, como se finalmente tivesse encontrado algo que procurava havia muitos anos."
+      "“Que bela luta, meninos. E que animal habilidoso você tem, Lucas.”"
     ],
     prompt: "Como Lucas responde ao capitão?",
     choices: [
@@ -411,9 +385,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "ship",
     text: [
       "Dentro da cabine há mapas, moedas, máscaras e uma espada negra presa à parede.",
-      "O capitão mostra uma bússola quebrada. Ele explica que, quando o sol desaparece, criaturas chamadas Sombras despertam.",
-      "A pedra mágica da bússola foi levada ao Templo das Glicínias Negras. Ao observar a espada encontrada por Lucas, ele reconhece a arma de um antigo Caçador.",
-      "O interior do navio cheirava a madeira antiga e ervas queimadas. Nos mapas, todas as rotas terminavam na mesma floresta, mas nenhuma mostrava um caminho de volta para a cidade."
+      "O capitão mostra uma bússola quebrada. Ele explica que, quando o sol desaparece, criaturas chamadas Sombras despertam."
     ],
     prompt: "O capitão oferece treinamento antes da missão.",
     choices: [
@@ -428,8 +400,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "ship",
     text: [
       "Lucas analisa o mapa e percebe três entradas possíveis no templo: o portão principal, um túnel antigo e uma passagem sobre as árvores.",
-      "O capitão avisa que nenhuma rota será segura sem aprender a controlar a espada.",
-      "O capitão explicou que a floresta alterava quem permanecia nela por tempo demais. Segundo ele, dominar a espada não serviria apenas para vencer uma batalha, mas para impedir que Lucas se tornasse parte daquele lugar."
+      "O capitão avisa que nenhuma rota será segura sem aprender a controlar a espada."
     ],
     prompt: "Depois de estudar o caminho, o que Lucas decide?",
     choices: [
@@ -443,8 +414,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "training",
     text: [
       "No convés, o capitão explica que a espada reage à respiração, à intenção e à forma como Lucas protege aquilo que considera importante.",
-      "Quatro estilos surgem como possibilidades. A escolha mudará os próximos movimentos no templo.",
-      "No convés, o vento mudou de direção quando Lucas segurou a lâmina. Pequenos reflexos percorreram o metal, reagindo à respiração dele e ao vínculo criado com seu companheiro."
+      "Quatro estilos surgem como possibilidades. A escolha mudará os próximos movimentos no templo."
     ],
     prompt: "Qual estilo combina mais com Lucas?",
     choices: [
@@ -460,8 +430,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "training",
     text: [
       "Depois de horas de treino, Lucas está exausto. O capitão prepara uma última prova: atravessar o convés enquanto alvos surgem dos dois lados.",
-      "No meio da prova, o dragão se desequilibra e prende uma asa entre as cordas.",
-      "O exercício parecia simples até as cordas começarem a se mover sozinhas. O capitão observava em silêncio, avaliando não apenas a técnica de Lucas, mas o tipo de pessoa que ele escolheria ser sob pressão."
+      "No meio da prova, o dragão se desequilibra e prende uma asa entre as cordas."
     ],
     prompt: "Qual decisão vem primeiro?",
     choices: [
@@ -476,9 +445,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "training",
     text: [
       "“Eu só preciso saber onde está a bússola”, diz Lucas.",
-      "O capitão entrega o mapa e avisa: “Coragem sem controle costuma terminar em túmulo.”",
-      "Sem dominar completamente a espada, Lucas precisará confiar mais em observação, improviso e no dragão.",
-      "Mesmo sem aceitar as instruções completas, Lucas ouviu o último aviso do capitão: as Sombras não atacavam somente o corpo. Elas usavam lembranças, dúvidas e medos para enfraquecer quem entrava no templo."
+      "O capitão entrega o mapa e avisa: “Coragem sem controle costuma terminar em túmulo.”"
     ],
     prompt: "Antes de partir, qual preparação ele faz sozinho?",
     choices: [
@@ -493,8 +460,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "temple",
     text: [
       "Lanternas apagadas, flores roxas e marcas de garras cobrem o caminho. O ar fica mais frio a cada passo.",
-      "Diante do templo, Lucas encontra três entradas. A pedra da bússola pulsa em algum lugar lá dentro.",
-      "As glicínias balançavam mesmo sem vento. A cada passo pelos corredores, Lucas via marcas de espadas nas paredes e ouvia sussurros que pareciam repetir pensamentos que nunca havia dito em voz alta."
+      "Diante do templo, Lucas encontra três entradas. A pedra da bússola pulsa em algum lugar lá dentro."
     ],
     prompt: "Por onde entrar?",
     choices: [
@@ -509,8 +475,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "temple",
     text: [
       "Uma voz surge na escuridão: “Outro humano procurando aquilo que não lhe pertence…”",
-      "Um antigo guerreiro transformado em Sombra aparece segurando a pedra da bússola. Marcas negras percorrem seus braços.",
-      "A criatura se moveu sem produzir som. Por trás da máscara rachada, dois olhos cansados observavam Lucas, como se o guerreiro preso ali ainda tentasse pedir ajuda."
+      "Um antigo guerreiro transformado em Sombra aparece segurando a pedra da bússola. Marcas negras percorrem seus braços."
     ],
     prompt: "Como Lucas inicia o confronto?",
     choices: [
@@ -526,8 +491,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "temple",
     text: [
       "A Sombra bloqueia o primeiro movimento e lança uma onda escura pelo salão. Lucas é jogado contra uma coluna.",
-      "O dragão fica entre ele e a criatura, mas corre perigo. A espada começa a reagir ao estilo escolhido.",
-      "A pancada roubou o ar de Lucas, mas ele se levantou antes que a Sombra avançasse novamente. Na lâmina, o reflexo escuro começou a dar lugar a uma luz da cor do estilo escolhido."
+      "O dragão fica entre ele e a criatura, mas corre perigo. A espada começa a reagir ao estilo escolhido."
     ],
     prompt: "Qual é a prioridade agora?",
     choices: [
@@ -543,8 +507,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "temple",
     text: [
       "A máscara da Sombra começa a rachar. Por um instante, Lucas vê o rosto de um guerreiro cansado, ainda preso dentro da criatura.",
-      "A pedra da bússola flutua acima do altar enquanto o templo começa a desmoronar.",
-      "O guerreiro ergueu a mão por baixo da máscara, hesitando entre atacar e resistir à própria maldição. Lucas compreendeu que o último golpe definiria mais do que o resultado daquela luta."
+      "A pedra da bússola flutua acima do altar enquanto o templo começa a desmoronar."
     ],
     prompt: "Como terminar o confronto?",
     choices: [
@@ -554,36 +517,33 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     ]
   },
   guardian: {
-    chapter: "CAPÍTULO VII · O GUARDIÃO",
-    title: "Uma batalha sem espadas",
+    chapter: "CAPÍTULO VII · O CAMPO DOS ECOS",
+    title: "A prova sem espadas",
     art: "football",
     text: [
-      "Com a pedra recuperada, a Bússola do Destino conduz Lucas até uma clareira cercada por ruínas.",
-      "No centro há um campo de futebol antigo, duas traves de pedra e um Guardião mascarado protegendo o único portão de saída.",
-      "“Espadas não decidirão esta batalha. Para sair, você deverá provar precisão, coragem e controle.”",
-      "A clareira parecia pertencer a outro mundo. Arquibancadas vazias surgiam entre árvores, e antigas bolas de futebol, transformadas em pedra, estavam espalhadas ao redor do campo."
+      "Com a pedra recuperada, a Bússola leva Lucas até um campo antigo. Um Guardião mascarado protege o portão de saída e coloca uma bola encantada aos pés dele.",
+      "“Leve-a até o círculo final. Aqui, não vence quem chuta mais forte — vence quem sabe quando correr, observar e confiar.”"
     ],
-    prompt: "Como Lucas pretende enfrentar o desafio?",
+    prompt: "Como Lucas começa a travessia?",
     choices: [
-      { label: "Jogar sozinho e de forma justa", next: "footballPrep", tone: "calm", effect: { guardianHelp: "sozinho" } },
-      { label: "Combinar uma jogada com o dragão", next: "footballPrep", tone: "gold", effect: { guardianHelp: "dragão", dragonBond: 5 } },
-      { label: "Estudar primeiro os movimentos do goleiro", next: "footballPrep", tone: "mystic", effect: { guardianHelp: "observação" } }
+      { label: "Avançar com velocidade", next: "footballPrep", tone: "danger", effect: { guardianHelp: "velocidade" } },
+      { label: "Observar o campo antes de avançar", next: "footballPrep", tone: "calm", effect: { guardianHelp: "observação" } },
+      { label: "Pedir ao dragão para procurar armadilhas", next: "footballPrep", tone: "gold", effect: { guardianHelp: "dragão", dragonBond: 5 } }
     ]
   },
   footballPrep: {
-    chapter: "DESAFIO DO GUARDIÃO",
-    title: "A estratégia para os três gols",
+    chapter: "O CAMPO DOS ECOS",
+    title: "A última jogada",
     art: "football",
     text: [
-      "O Guardião posiciona a bola no centro do campo. Cada chute será uma disputa de leitura e coragem.",
-      "Lucas precisa marcar três gols. O dragão observa do lado de fora, pronto para ajudar apenas se for chamado.",
-      "Lucas tocou na bola e sentiu uma energia vibrar sob o pé. O Guardião não era apenas rápido: ele parecia antecipar intenções, obrigando Lucas a esconder o canto escolhido até o último instante."
+      "O campo muda sob os pés de Lucas e o Guardião entra no caminho. Ele precisa passar sem perder a bola.",
+      "Perto do fim, Lucas percebe que não existe gol: a bola deve ser colocada sobre um selo dourado para abrir o portão."
     ],
-    prompt: "Escolha a primeira estratégia.",
+    prompt: "Como Lucas passa pelo Guardião?",
     choices: [
-      { label: "Chute colocado", next: "football", tone: "calm", effect: { guardianHelp: "colocado" } },
-      { label: "Chute forte", next: "football", tone: "danger", effect: { guardianHelp: "força" } },
-      { label: "Fingir o canto antes de chutar", next: "football", tone: "mystic", effect: { guardianHelp: "finta" } }
+      { label: "Tentar um drible rápido", next: "r1", tone: "danger", effect: { guardianHelp: "drible" } },
+      { label: "Fingir um lado e mudar no último instante", next: "r1", tone: "mystic", effect: { guardianHelp: "finta" } },
+      { label: "Fazer uma tabela com o dragão", next: "r1", tone: "gold", effect: { guardianHelp: "parceria", dragonBond: 5 } }
     ]
   },
   r1: {
@@ -591,10 +551,8 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     title: "A máquina escolhida",
     art: "r1",
     text: [
-      "Quando o terceiro gol entra, o portão se abre e revela uma estrada iluminada atravessando as montanhas.",
-      "Ao lado dela está uma R1 protegida por símbolos mágicos. O capitão surge pela última vez: “A CB 300 trouxe você até esta aventura. Esta máquina o levará para fora dela.”",
-      "A Bússola do Destino se transforma em chave. O motor desperta.",
-      "A moto era diferente de qualquer máquina comum. Linhas de luz percorriam a carenagem azul e branca, e o painel exibia o mesmo símbolo da bússola, aguardando que Lucas escolhesse partir."
+      "Quando a bola toca o selo dourado, o campo silencia e o portão se abre, revelando uma estrada iluminada pelas montanhas.",
+      "Ao lado dela está uma R1 protegida por símbolos mágicos. O capitão surge pela última vez: “A CB 300 trouxe você até esta aventura. Esta máquina o levará para fora dela.”"
     ],
     prompt: "Antes de partir, o que Lucas confere?",
     choices: [
@@ -609,8 +567,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "r1",
     text: [
       "A estrada desaparece na névoa. O dragão abre as asas e acompanha a R1 pelo alto.",
-      "A bússola aponta para uma luz distante, mas o caminho se divide entre uma rota rápida e uma trilha marcada por símbolos roxos.",
-      "Ao olhar para trás, Lucas viu a floresta fechando o portão lentamente. Não havia mais retorno; dali em diante, cada curva o aproximaria do mundo conhecido — ou do último segredo daquela aventura."
+      "A bússola aponta para uma luz distante, mas o caminho se divide entre uma rota rápida e uma trilha marcada por símbolos roxos."
     ],
     prompt: "Qual caminho Lucas escolhe?",
     choices: [
@@ -625,8 +582,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "r1",
     text: [
       "A R1 corta a névoa em alta velocidade. De repente, Lucas vê uma ponte parcialmente destruída sobre um desfiladeiro.",
-      "Não há tempo para voltar. O dragão voa ao lado, esperando uma decisão.",
-      "O vento pressionava seu corpo contra a moto, e as luzes mágicas da estrada passavam como riscos ao redor. Lucas precisava confiar nos reflexos, na máquina e no companheiro que voava ao seu lado."
+      "Não há tempo para voltar. O dragão voa ao lado, esperando uma decisão."
     ],
     prompt: "Como atravessar?",
     choices: [
@@ -641,8 +597,7 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     art: "r1",
     text: [
       "Lucas segue com cuidado e encontra símbolos roxos gravados nas pedras. Cada marca parece ter sido colocada por alguém que sabia que ele passaria ali.",
-      "Em uma bifurcação, três sinais aparecem: um coração, uma estrela e uma seta quase apagada.",
-      "As marcas não pareciam antigas. Algumas pétalas roxas ainda estavam frescas sobre as pedras, como se alguém tivesse passado por ali poucas horas antes e preparado o caminho especialmente para ele."
+      "Em uma bifurcação, três sinais aparecem: um coração, uma estrela e uma seta quase apagada."
     ],
     prompt: "Qual símbolo seguir?",
     choices: [
@@ -652,10 +607,6 @@ const scenes: Partial<Record<SceneId, Scene>> = {
     ]
   }
 };
-
-function normalize(value: string) {
-  return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
-}
 
 function SceneVisual({ scene, art, title, dragonName }: { scene: SceneId; art: ArtType; title: string; dragonName: string }) {
   const visuals: Record<ArtType, { icon: string; kicker: string; src: string; note: string; alt: string }> = {
@@ -669,7 +620,7 @@ function SceneVisual({ scene, art, title, dragonName }: { scene: SceneId; art: A
     ship: { icon: "☸", kicker: "NAVIO DO CAPITÃO", src: "/assets/fase-piratas-escondido.webp", note: "Depois da luta, o capitão revela uma rota maior que a floresta.", alt: "Lucas escondido observando o acampamento pirata e o navio entre as árvores." },
     training: { icon: "⚔", kicker: "TREINAMENTO DO CAÇADOR", src: "/assets/fase-templo-espada.webp", note: "A espada e o templo preparam Lucas para a batalha final.", alt: "Lucas segurando uma espada luminosa diante do templo ao lado do dragão." },
     temple: { icon: "✦", kicker: "GLICÍNIAS NEGRAS", src: "/assets/fase-templo-espada.webp", note: "O templo guarda a sombra, a espada e a decisão mais difícil.", alt: "Lucas segurando uma espada luminosa diante do templo ao lado do dragão." },
-    football: { icon: "⚽", kicker: "CAMPO DO GUARDIÃO", src: "/assets/fase-futebol-guardiao.webp", note: "Uma batalha decidida com leitura, calma e precisão.", alt: "Lucas preparando um chute em um campo antigo enquanto um guardião protege o gol." },
+    football: { icon: "⚽", kicker: "CAMPO DO GUARDIÃO", src: "/assets/fase-futebol-guardiao.webp", note: "Uma prova de controle, leitura e parceria.", alt: "Lucas preparando um chute em um campo antigo enquanto um guardião protege o gol." },
     r1: { icon: "➤", kicker: "ESTRADA DA SAÍDA", src: "/assets/fase-r1-saida.webp", note: "A última corrida leva Lucas para fora da floresta.", alt: "Lucas pilotando uma moto R1 azul em uma estrada mágica ao lado de um dragão." },
     treasure: { icon: "◆", kicker: "TESOURO FINAL", src: "/assets/fase-tesouro-final.webp", note: "A aventura termina onde o presente finalmente se revela.", alt: "Lucas abrindo um baú iluminado cercado por tesouros com o dragão ao lado." }
   };
@@ -692,9 +643,9 @@ function SceneVisual({ scene, art, title, dragonName }: { scene: SceneId; art: A
     waterTrail: { src: "/assets/fase-piratas-escondido.webp", kicker: "VOZES ALÉM DA NASCENTE", note: "A busca por água conduz os dois até um acampamento perigoso.", alt: "Lucas escondido observando um acampamento pirata junto de seu dragão." },
     pirateChoice: { src: "/assets/fase-piratas-escondido.webp", kicker: "DECISÃO NO ACAMPAMENTO", note: "Antes de agir, Lucas precisa decidir se confia na furtividade ou na conversa.", alt: "Lucas observando escondido os piratas na floresta." },
     templeArrival: { src: "/assets/fase-templo-espada.webp", kicker: "GLICÍNIAS NEGRAS", note: "O templo aparece depois de todas as decisões que prepararam Lucas para este momento.", alt: "Lucas diante do templo segurando uma espada luminosa com o dragão ao lado." },
-    guardian: { src: "/assets/fase-futebol-guardiao.webp", kicker: "O GUARDIÃO", note: "A espada deixa de importar. Agora a saída depende de três gols.", alt: "Lucas com uma bola de futebol diante de um guardião em um campo antigo." },
-    footballPrep: { src: "/assets/fase-futebol-guardiao.webp", kicker: "DESAFIO DO GUARDIÃO", note: "Lucas observa o goleiro antes de escolher como atacar.", alt: "Lucas preparando um chute diante de um guardião em um campo antigo." },
-    football: { src: "/assets/fase-futebol-guardiao.webp", kicker: "TRÊS GOLS PARA SAIR", note: "Cada chute aproxima Lucas do portão que leva para fora da floresta.", alt: "Lucas chutando uma bola luminosa em direção ao guardião." },
+    guardian: { src: "/assets/fase-futebol-guardiao.webp", kicker: "O CAMPO DOS ECOS", note: "Sem espadas: Lucas precisa atravessar o campo e alcançar o selo final.", alt: "Lucas com uma bola de futebol diante de um guardião em um campo antigo." },
+    footballPrep: { src: "/assets/fase-futebol-guardiao.webp", kicker: "O CAMPO DOS ECOS", note: "O Guardião entra no caminho. Lucas precisa escolher como passar.", alt: "Lucas preparando um chute diante de um guardião em um campo antigo." },
+    football: { src: "/assets/fase-futebol-guardiao.webp", kicker: "ÚLTIMA JOGADA", note: "A bola encantada precisa chegar ao selo dourado para abrir a saída.", alt: "Lucas chutando uma bola luminosa em direção ao guardião." },
     r1: { src: "/assets/fase-r1-saida.webp", kicker: "A MÁQUINA ESCOLHIDA", note: "A R1 desperta quando a Bússola do Destino se transforma em chave.", alt: "Lucas pilotando uma R1 azul em uma estrada mágica ao lado do dragão." },
     roadChoice: { src: "/assets/fase-r1-saida.webp", kicker: "A ESTRADA FINAL", note: "Velocidade, atenção e confiança definem como ele deixa a floresta.", alt: "Lucas pilotando uma R1 azul em alta velocidade por uma estrada mágica." },
     treasure: { src: "/assets/fase-tesouro-final.webp", kicker: "TESOURO FINAL", note: "Depois de toda a jornada, resta apenas a última resposta.", alt: "Lucas abrindo um baú luminoso cercado por tesouros e acompanhado do dragão." }
@@ -775,7 +726,7 @@ function consequenceText(scene: SceneId, flags: GameFlags, dragonName: string) {
     if (flags.captainTrust <= 1 && flags.pirateApproach) lines.push("O capitão cumpriu o acordo, mas não revelou todos os perigos da estrada. Lucas terá de descobrir sozinho o que existe além da névoa.");
   }
 
-  return lines;
+  return lines.slice(0, 1);
 }
 
 function extraChoices(scene: SceneId, flags: GameFlags, dragonName: string): Choice[] {
@@ -824,11 +775,6 @@ export default function GamePage() {
   const [dragonName, setDragonName] = useState("");
   const [draftName, setDraftName] = useState("");
   const [nameError, setNameError] = useState("");
-  const [goals, setGoals] = useState(0);
-  const [keeperSide, setKeeperSide] = useState<"esquerda" | "centro" | "direita">("centro");
-  const [message, setMessage] = useState("Escolha um canto para chutar.");
-  const [answer, setAnswer] = useState("");
-  const [finalError, setFinalError] = useState("");
   const [history, setHistory] = useState<SceneId[]>([]);
 
   useEffect(() => {
@@ -856,9 +802,6 @@ export default function GamePage() {
   function restart() {
     setScene("title");
     setFlags(initialFlags);
-    setGoals(0);
-    setMessage("Escolha um canto para chutar.");
-    setAnswer("");
     setHistory([]);
   }
 
@@ -887,31 +830,6 @@ export default function GamePage() {
       .replaceAll("ao dragão", `a ${dragonName}`)
       .replaceAll("O dragão", dragonName)
       .replaceAll("o dragão", dragonName);
-  }
-
-  function shoot(side: "esquerda" | "centro" | "direita") {
-    const sides = ["esquerda", "centro", "direita"] as const;
-    const keeper = sides[Math.floor(Math.random() * sides.length)];
-    setKeeperSide(keeper);
-    const bonus = flags.guardianHelp === "observação" || flags.guardianHelp === "finta";
-    const goal = side !== keeper || (bonus && Math.random() > 0.45);
-    if (goal) {
-      const nextGoals = goals + 1;
-      setGoals(nextGoals);
-      setMessage(`GOL! O Guardião saltou para ${keeper}.`);
-      if (nextGoals >= 3) setTimeout(() => go("r1"), 850);
-    } else {
-      setMessage(`Defesa do Guardião no ${keeper}. Tente uma nova leitura.`);
-    }
-  }
-
-  function unlockTreasure() {
-    if (normalize(answer) === normalize(FINAL_ANSWER)) {
-      setFinalError("");
-      go("final");
-    } else {
-      setFinalError("Pense no começo de tudo…");
-    }
   }
 
   if (scene === "title") {
@@ -956,28 +874,14 @@ export default function GamePage() {
     );
   }
 
-  if (scene === "football") {
-    return (
-      <main className="game-shell"><AdventureMap scene={scene}/><section className="game-stage single-stage">
-        <SceneVisual scene={scene} art="football" title="Três gols para abrir o portão" dragonName={dragonName}/>
-        <div className="story-panel centered-panel football-scene"><p className="eyebrow">DESAFIO DO GUARDIÃO</p><h1>Marque três gols</h1><p className="lead">A estratégia escolhida antes do jogo pode facilitar a leitura do goleiro.</p>
-          <div className="scoreboard"><span>Lucas</span><strong>{goals}/3</strong><span>Guardião: {keeperSide}</span></div>
-          <div className="goal"><div className={`keeper keeper-${keeperSide}`}>◆</div><div className="net"/></div>
-          <div className="shoot-buttons"><button onClick={() => shoot("esquerda")}>Esquerda</button><button onClick={() => shoot("centro")}>Centro</button><button onClick={() => shoot("direita")}>Direita</button></div>
-          <p className="feedback">{message}</p>
-        </div>
-      </section><GameControls back={back} restart={restart} canBack={history.length>0}/></main>
-    );
-  }
-
   if (scene === "treasure") {
     return (
       <main className="game-shell"><AdventureMap scene={scene}/><section className="game-stage single-stage">
-        <SceneVisual scene={scene} art="treasure" title="A última barreira" dragonName={dragonName}/>
-        <div className="story-panel centered-panel"><p className="eyebrow">TESOURO FINAL</p><h1>Diga a primeira coisa que você me mandou</h1><p className="lead">A resposta correta desbloqueará o seu presente.</p>
-          <input className="text-input" value={answer} onChange={(e) => setAnswer(e.target.value)} placeholder="Digite sua resposta"/>
-          {finalError && <p className="error-text">{finalError}</p>}
-          <button className="primary-button" onClick={unlockTreasure}>Desbloquear presente</button>
+        <SceneVisual scene={scene} art="treasure" title="O Tesouro Final" dragonName={dragonName}/>
+        <div className="story-panel centered-panel"><p className="eyebrow">TESOURO FINAL</p><h1>Lucas chegou ao fim da jornada</h1>
+          <p className="lead">Depois da floresta, do dragão, dos piratas, do templo, do Guardião e da estrada final, não existe mais nenhuma prova para cumprir.</p>
+          <p className="lead">O baú se abre sozinho quando Lucas se aproxima. A luz que sai de dentro marca o fim da aventura — e tudo o que ele precisava fazer era chegar até aqui.</p>
+          <button className="primary-button" onClick={() => go("final")}>Finalizar jornada</button>
         </div>
       </section><GameControls back={back} restart={restart} canBack={history.length>0}/></main>
     );

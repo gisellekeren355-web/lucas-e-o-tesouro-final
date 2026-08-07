@@ -43,3 +43,15 @@
 .visual-caption small{margin-top:10px;color:#d7c59e;font-style:normal;line-height:1.45}
 @media(max-width:930px){.scene-image{object-position:center top}.visual-caption{left:18px;right:18px;bottom:18px;padding:14px}.visual-symbol{left:18px;top:18px}}
 @media(max-width:620px){.visual-caption strong{font-size:1.45rem}.visual-caption small{font-size:.78rem}.visual-symbol{width:40px;height:40px;font-size:1rem}}
+
+/* novo desafio de futebol */
+.football-progress{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:24px 0 18px}
+.football-progress span{padding:10px 8px;border:1px solid rgba(212,170,87,.22);background:rgba(255,255,255,.025);color:#8f8264;font:800 .66rem Arial,sans-serif;letter-spacing:.08em;text-align:center}
+.football-progress span.active{border-color:rgba(212,170,87,.7);background:rgba(212,170,87,.11);color:#f0d38a;box-shadow:0 0 22px rgba(212,170,87,.08)}
+.football-progress span.done{border-color:rgba(91,160,122,.52);background:rgba(47,101,73,.18);color:#b9d8c2}
+.football-challenge{margin:16px 0 14px;padding:22px;border:1px solid rgba(212,170,87,.26);background:linear-gradient(180deg,rgba(19,40,29,.38),rgba(7,14,10,.42));text-align:left}
+.football-challenge h2{margin:0 0 8px;color:#ead9ad;font-size:1.2rem;font-weight:600}
+.football-challenge p{margin:0 0 18px;color:#b8aa88;line-height:1.6}
+.football-scene .shoot-buttons button{min-height:54px;cursor:pointer;transition:.2s}
+.football-scene .shoot-buttons button:hover{transform:translateY(-2px);border-color:#f0d38a;box-shadow:0 10px 24px rgba(0,0,0,.2)}
+@media(max-width:620px){.football-progress{grid-template-columns:1fr}.football-challenge{padding:17px}.football-progress span{text-align:left}}
